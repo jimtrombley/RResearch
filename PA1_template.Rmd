@@ -1,5 +1,10 @@
 ---
-
+title: "RResearch Project1"
+author: "JT"
+date: "March 13, 2016"
+output:
+  html_document:
+    keep_md: yes
 ---
 
 # Reproducible Research: Peer Assessment 1
@@ -18,6 +23,7 @@ activity <- read.csv("source data/activity.csv", colClasses = c("numeric", "Date
 ### Histogram of the total number of steps taken each day
 ```{r}
 dailysteps <- aggregate(steps ~ date, activity, sum, na.action = na.omit)
+par(mar=c(5,4,1,1), las=1)
 ggplot(dailysteps, aes(x = steps)) + geom_histogram(binwidth = 2500, colour = "black",
 fill = "blue") + labs(title = "Steps Taken per Day", x = "Number of Steps", y = "Frequency")
 ```
